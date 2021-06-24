@@ -100,15 +100,15 @@ for n in range(5,51):
     
     results_dict[n] = result_counts
 
-print(results_dict)    
+# print(results_dict)    
 
 attacker_wins = []
 armies_list = []
 for key, value in results_dict.items():
     attacker_wins.append(value[0]/iterations)
     armies_list.append(key)
-print(armies_list)
-print(attacker_wins)
+# print(armies_list)
+# print(attacker_wins)
 
 df = pd.DataFrame({'armies':armies_list, "attacker win prob":attacker_wins})
 df.plot.bar(x='armies',y='attacker win prob')
