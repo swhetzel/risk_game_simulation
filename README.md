@@ -1,5 +1,7 @@
 # README file for risk game simulation
-You gotta have a readme
+You gotta have a readme otherwise people won't know what this does!
+
+usage: run pete's main.py
 
 ## Files
 1. risk_game_simulation.py
