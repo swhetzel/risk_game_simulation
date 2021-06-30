@@ -1,8 +1,5 @@
 #TODO
-* logging prints
 * readability testing
-* looping for histogram for analysis
-
 
 # README file for risk game simulation
 You gotta have a readme
