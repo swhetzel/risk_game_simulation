@@ -28,24 +28,9 @@ def get_die_roll(side, armies):
     return results
 
 
-# compare resultssubtract from either attacker or defender
 def compare_results(att_results, def_results):
-    """compares the attacker and defender results and returns how many armies lost"""
-    result1 = -1
-    result2 = -1
-    
-    if att_results[0] > def_results[0]:
-        result1 = 1
-    else:
-        result1 = 0
-    if len(def_results) > 1 and len(att_results) > 1:
-        if att_results[1] > def_results[1]:
-            result2 = 1
-        else: 
-            result2 = 0
-            
-    return result1, result2
-
+    """Compares attacker and defender results. Returns a list of bools, True for each attacker win, False for each defender win."""
+    return [a > d for a, d in zip(att_results, def_results)]
 
 # subtract from either attacker or defender
 def battle_results(n):
@@ -60,9 +45,9 @@ def battle_results(n):
         for val in results:
             if att_armies == 0 or def_armies == 0:
                 break
-            if val == 1:
+            if val:
                 def_armies -= 1
-            elif val == 0:
+            else:
                 att_armies -= 1
     
         flag = False
