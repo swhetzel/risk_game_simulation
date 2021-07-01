@@ -30,4 +30,3 @@ class Army():
         ''' initialization of army, sets attacker status and initial number of divisions'''
         self.divisions = divisions   # number of divisions in the army
         self.attacker = attacker     # True for attacker, False for defender
-        print("  ---> Army created: id = {}, size = {}, attacker = {}.".format(self,self.divisions,self.attacker))
