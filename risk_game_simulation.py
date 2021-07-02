@@ -10,23 +10,14 @@ import pandas as pd
 # Dice rolling simulator for offense and defense
 def get_die_roll(side, armies):
     """returns a set of dice results for a given side"""
-    dice = 0
-    
-    if side == "attacker":
-        if armies > 2:
-            dice = 3
-        else:
-            dice = armies
-    elif side == "defender":
-        if armies > 1:
-            dice = 2
-        else:
-            dice = armies
-    results = []
+    if side == "attacker" and armies > 2:
+        dice = 3
+    elif side == "defender" and armies > 1:
+        dice = 2
+    else:
+        dice = armies
     results = np.random.randint(1,7,dice).tolist()
-    results.sort(reverse=True)
-    return results
-
+    return sorted(results, reverse=True)
 
 def compare_results(att_results, def_results):
     """Compares attacker and defender results. Returns a list of bools, True for each attacker win, False for each defender win."""
@@ -66,7 +57,7 @@ def battle_results(n):
             if def_armies == 0:
                 result = "Attacker Wins"
             if flag:
-                print(result+ '\n\n')
+                print(result + '\n\n')
             return result
 
 # Iterate and plot
