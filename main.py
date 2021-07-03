@@ -56,7 +56,7 @@ def main():
         attackerWinPercentages.append(100.*attackerWins/PRECISION)
 
     print(attackerWinPercentages)
-
+    return(attackerWinPercentages)
 
 
 if __name__ == '__main__':
