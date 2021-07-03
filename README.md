@@ -17,6 +17,3 @@ usage: run pete's main.py
 4. data.txt - a sample output from pete's code
 5. plotter.py - a quick and dirty script to make the plot in the same style as original
 6. petes-plot.png - petes version of the plot
-
-# Result plot in stephen's style
-![](https://github.com/alonzi/risk_game_simulation/blob/eb772adc75a6e67b3886460a45c8c9d5876efec2/petes-plot.png)
