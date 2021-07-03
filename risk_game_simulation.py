@@ -10,42 +10,18 @@ import pandas as pd
 # Dice rolling simulator for offense and defense
 def get_die_roll(side, armies):
     """returns a set of dice results for a given side"""
-    dice = 0
-    
-    if side == "attacker":
-        if armies > 2:
-            dice = 3
-        else:
-            dice = armies
-    elif side == "defender":
-        if armies > 1:
-            dice = 2
-        else:
-            dice = armies
-    results = []
-    results = np.random.randint(1,7,dice).tolist()
-    results.sort(reverse=True)
-    return results
-
-
-# compare resultssubtract from either attacker or defender
-def compare_results(att_results, def_results):
-    """compares the attacker and defender results and returns how many armies lost"""
-    result1 = -1
-    result2 = -1
-    
-    if att_results[0] > def_results[0]:
-        result1 = 1
+    if side == "attacker" and armies > 2:
+        dice = 3
+    elif side == "defender" and armies > 1:
+        dice = 2
     else:
-        result1 = 0
-    if len(def_results) > 1 and len(att_results) > 1:
-        if att_results[1] > def_results[1]:
-            result2 = 1
-        else: 
-            result2 = 0
-            
-    return result1, result2
+        dice = armies
+    results = np.random.randint(1,7,dice).tolist()
+    return sorted(results, reverse=True)
 
+def compare_results(att_results, def_results):
+    """Compares attacker and defender results. Returns a list of bools, True for each attacker win, False for each defender win."""
+    return [a > d for a, d in zip(att_results, def_results)]
 
 # subtract from either attacker or defender
 def battle_results(n):
@@ -60,9 +36,9 @@ def battle_results(n):
         for val in results:
             if att_armies == 0 or def_armies == 0:
                 break
-            if val == 1:
+            if val:
                 def_armies -= 1
-            elif val == 0:
+            else:
                 att_armies -= 1
     
         flag = False
@@ -81,7 +57,7 @@ def battle_results(n):
             if def_armies == 0:
                 result = "Attacker Wins"
             if flag:
-                print(result+ '\n\n')
+                print(result + '\n\n')
             return result
 
 # Iterate and plot
